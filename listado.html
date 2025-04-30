@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista Pokemon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="icon" href="img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Pokemon App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listado.html">Ver Listado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favoritos.html">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formarequipo.html">formar equipo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Buscador -->
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <input type="text" id="buscador" class="form-control" placeholder="Buscar Pokémon por nombre" aria-label="Buscar Pokémon por nombre">
+            </div>
+        </div>
+    </div>
+
+    <!-- Layout Principal -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Filtros -->
+            <div class="col-12 col-md-2 mb-4">
+                <!-- Botones de filtro -->
+                <div class="row">
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="ver-todos" style="background-color: gray;">Todos</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="normal" style="background-color: #A8A77A;">Normal</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="fire" style="background-color: #EE8130;">Fire</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="water" style="background-color: #6390F0;">Water</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="grass" style="background-color: #7AC74C;">Grass</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="electric" style="background-color: #F7D02C;">Electric</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="ice" style="background-color: #96D9D6;">Ice</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="fighting" style="background-color: #C22E28;">Fighting</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="poison" style="background-color: #A33EA1;">Poison</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="ground" style="background-color: #E2BF65;">Ground</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="flying" style="background-color: #A98FF3;">Flying</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="psychic" style="background-color: #F95587;">Psychic</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="bug" style="background-color: #A6B91A;">Bug</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="rock" style="background-color: #B6A136;">Rock</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="ghost" style="background-color: #735797;">Ghost</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="dragon" style="background-color: #6F35FC;">Dragon</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="steel" style="background-color: #B7B7CE;">Steel</button>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <button class="btn btn-header btn-sm w-100 text-white border-dark" data-id="fairy" style="background-color: #D685AD;">Fairy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor de Pokémon -->
+            <div class="col-12 col-md-10">
+                <!-- Paginación arriba -->
+                <div class="d-flex justify-content-center my-4" id="pagination">
+                    
+                </div>
+
+                <!-- Cartas de Pokémon -->
+                <div class="row justify-content-center" id="pokemon-container">
+                    <!-- Aquí se insertarán los Pokémon -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+    <script src="js/micodigo.js"></script>
+</body>
+</html>
