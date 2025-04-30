@@ -25,7 +25,7 @@ if(window.location.pathname.includes("listado.html")){
                     todos.push(data);
                     imprimir(data);
                 });
-        }, i * 15); // se retrasa cada vez más
+        }, i * 50); // se retrasa cada vez más
     }
 }
 
