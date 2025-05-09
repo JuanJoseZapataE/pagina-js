@@ -171,7 +171,7 @@ function imprimir(data) {
                 agregarfavorito(data);
                 boton_fav.style.display = "none"; 
             }
-        );
+        });
 
         if(window.location.pathname.includes("favoritos.html")){
             boton_fav.addEventListener("click", () => eliminarfavorito(data));}
