@@ -35,7 +35,7 @@ if(window.location.pathname.includes("listado.html")){
         const texto = buscar.value.toLowerCase();
         const filtrados = todos.filter(pokemon => pokemon.name.toLowerCase().includes(texto));
     
-        contenedor.innerHTML = ""; // Limpiar el contenedor antes de mostrar los resultados
+        contenedor.innerHTML = ""; 
     
         mostrarpokemon(filtrados);
     });
@@ -53,13 +53,13 @@ function imprimir(data) {
     const carta = document.createElement("div");
     carta.classList.add(
         "card",
-        "col-12",      // 1 por fila en pantallas muy pequeñas
-        "col-sm-6",    // 2 por fila en pantallas pequeñas
-        "col-md-4",    // 3 por fila en medianas
-        "col-lg-3",    // 4 por fila en grandes
-        "col-xl-2",    // 6 por fila en extra grandes
+        "col-12",      
+        "col-sm-6",    
+        "col-md-4",    
+        "col-lg-3",    
+        "col-xl-2",    
         "m-2",
-        "mx-auto",     // Center the card on small screens
+        "mx-auto",     
         "text-center",
         "bg-light",
         "border-danger",
@@ -105,7 +105,7 @@ function imprimir(data) {
     const boton_fav = document.createElement("button");
     boton_fav.classList.add("btn", "btn-danger", "btn-sm", "mt-2","col-12" ) ;
 
-    const boton_ver = document.createElement("a"); // Cambiado a un enlace
+    const boton_ver = document.createElement("a"); 
     boton_ver.classList.add("btn", "btn-danger", "btn-sm", "mt-2", "col-12");
     boton_ver.textContent = "Ver Detalles";
 
@@ -120,7 +120,7 @@ function imprimir(data) {
     }
     
 
-    // imprimir
+
 
     imagen.src = data.sprites.front_default;
     imagen.alt = data.name;
@@ -157,10 +157,11 @@ function imprimir(data) {
         carta.appendChild(div_boton);
 
         if(esfavorito){
-            boton_fav.style.display = "none"; // Oculta el botón si ya es favorito
+            boton_fav.style.display = "none"; 
             if(window.location.pathname.includes("favoritos.html")){
                 boton_fav.textContent = "Eliminar de Favoritos";
-                boton_fav.style.display = "block"; // Muestra el botón en la página de favoritos
+                boton_fav.style.display = "block"; 
+                
             }
 
         }
@@ -168,8 +169,7 @@ function imprimir(data) {
         boton_fav.addEventListener("click", () => {
             if(boton_fav.textContent === "Agregar a Favoritos"){
                 agregarfavorito(data);
-                boton_fav.style.display = "none"; // Oculta el botón después de agregar a favoritos
-            }
+                boton_fav.style.display = "none"; 
             }
         );
 
@@ -237,22 +237,22 @@ if (window.location.pathname.includes("detalles.html")) {
 
 function mostrarDetalle(data) {
     const contenedorDetalle = document.getElementById("detalle-container");
-    contenedorDetalle.innerHTML = ""; // Limpia cualquier contenido previo
+    contenedorDetalle.innerHTML = ""; 
 
-    // Título
+    
     const titulo = document.createElement("h1");
     titulo.classList.add("text-center", "text-capitalize", "mt-4", "mb-4", "text-danger");
     titulo.textContent = data.name;
 
-    // Contenedor principal
+    
     const contenedor = document.createElement("div");
     contenedor.classList.add("row", "justify-content-center", "align-items-start", "g-4");
 
-    // Columna de imágenes
+    
     const colImagenes = document.createElement("div");
     colImagenes.classList.add("col-md-5", "d-flex", "flex-column", "align-items-center");
 
-    // Lista de imágenes a mostrar (ángulos distintos)
+    
     const imagenes = [
         { src: data.sprites.front_default, alt: "Frontal" },
         { src: data.sprites.back_default, alt: "Trasera" },
@@ -266,12 +266,12 @@ function mostrarDetalle(data) {
             imagenEl.src = img.src;
             imagenEl.alt = img.alt;
             imagenEl.classList.add("img-fluid", "mb-3", "rounded");
-            imagenEl.style.maxWidth = "80%"; // Tamaño más pequeño
+            imagenEl.style.maxWidth = "80%"; 
             colImagenes.appendChild(imagenEl);
         }
     });
 
-    // Columna de datos
+    
     const colDatos = document.createElement("div");
     colDatos.classList.add("col-md-6");
 
@@ -293,11 +293,11 @@ function mostrarDetalle(data) {
     const tipo2 = document.createElement("p");
     tipo2.textContent = "Tipo 2: " + (data.types[1] ? data.types[1].type.name : "Ninguno");
 
-    // Habilidades
+    
     const habilidades = document.createElement("p");
     habilidades.textContent = "Habilidades: " + data.abilities.map(a => a.ability.name).join(", ");
 
-    // Estadísticas base
+    
     const statsTitle = document.createElement("h4");
     statsTitle.textContent = "Estadísticas Base:";
 
@@ -308,13 +308,13 @@ function mostrarDetalle(data) {
         statsList.appendChild(li);
     });
 
-    // Botón volver
+   
     const volver = document.createElement("a");
     volver.href = "listado.html";
     volver.classList.add("btn", "btn-dark", "mt-4");
     volver.textContent = "Volver al Listado";
 
-    // Agregar datos al contenedor
+    
     colDatos.appendChild(id);
     colDatos.appendChild(experiencia);
     colDatos.appendChild(peso);
@@ -326,7 +326,7 @@ function mostrarDetalle(data) {
     colDatos.appendChild(statsList);
     colDatos.appendChild(volver);
 
-    // Armar estructura final
+   
     contenedor.appendChild(colImagenes);
     contenedor.appendChild(colDatos);
     contenedorDetalle.appendChild(titulo);
